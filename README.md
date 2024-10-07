@@ -71,6 +71,7 @@ Figure 1 in the main paper demonstrates that our proposed ARB-LLM<sub>RC</sub> o
 
 If you find the code helpful in your research or work, please cite the following paper.
 
+```
 @article{li2024arbllmalternatingrefinedbinarizations,
       title={ARB-LLM: Alternating Refined Binarizations for Large Language Models}, 
       author={Zhiteng Li and Xianglong Yan and Tianao Zhang and Haotong Qin and Dong Xie and Jiang Tian and zhongchao shi and Linghe Kong and Yulun Zhang and Xiaokang Yang},
@@ -80,7 +81,7 @@ If you find the code helpful in your research or work, please cite the following
       primaryClass={cs.CV},
       url={https://arxiv.org/abs/2410.03129}, 
 }
-
+```
 
 ## 💡 Acknowledgements
 
