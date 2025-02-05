@@ -5,6 +5,14 @@
 [[arXiv](https://arxiv.org/pdf/2410.03129
 )] [[supplementary material](https://github.com/ZHITENGLI/ARB-LLM/releases/tag/v1)] [visual results] [models]
 
+
+#### 🔥🔥🔥 News
+
+- **2025-01-23:** ARB-LLM is accepted at ICLR 2025. 🎉🎉🎉
+- **2024-10-03:** This repo is released.
+
+---
+
 > **Abstract:** Large Language Models (LLMs) have greatly pushed forward advancements in natural language processing, yet their high memory and computational demands hinder practical deployment. Binarization, as an effective compression technique, can shrink model weights to just 1 bit, significantly reducing the high demands on computation and memory. However, current binarization methods struggle to narrow the distribution gap between binarized and full-precision weights, while also overlooking the column deviation in LLM weight distribution. To tackle these issues, we propose ARB-LLM, a novel 1-bit post-training quantization (PTQ) technique tailored for LLMs. To narrow the distribution shift between binarized and full-precision weights, we first design an alternating refined binarization (ARB) algorithm to progressively update the binarization parameters, which significantly reduces the quantization error. Moreover, considering the pivot role of calibration data and the column deviation in LLM weights, we further extend ARB to ARB-X and ARB-RC. In addition, we refine the weight partition strategy with column-group bitmap (CGB), which further enhance performance. Equipping ARB-X and ARB-RC with CGB, we obtain ARB-LLM<sub>X</sub>
  and ARB-LLM<sub>RC</sub>
  respectively, which significantly outperform state-of-the-art (SOTA) binarization methods for LLMs.
