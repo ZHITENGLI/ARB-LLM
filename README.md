@@ -1,13 +1,14 @@
-# ARB-LLM: Alternating Refined Binarizations for Large Language Models
+# [ICLR'25] ARB-LLM: Alternating Refined Binarizations for Large Language Models
 
-[Zhiteng Li](https://zhitengli.github.io), Xianglong Yan, Tianao Zhang, [Haotong Qin](https://htqin.github.io/), Dong Xie, Jiang Tian, Zhongchao Shi, [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), [Yulun Zhang](http://yulunzhang.com/), and [Xiaokang Yang](https://scholar.google.com/citations?user=yDEavdMAAAAJ), "ARB-LLM: Alternating Refined Binarizations for Large Language Models", arXiv, 2024
+[Zhiteng Li](https://zhitengli.github.io), Xianglong Yan, Tianao Zhang, [Haotong Qin](https://htqin.github.io/), Dong Xie, Jiang Tian, Zhongchao Shi, [Linghe Kong](https://www.cs.sjtu.edu.cn/~linghe.kong/), [Yulun Zhang](http://yulunzhang.com/), and [Xiaokang Yang](https://scholar.google.com/citations?user=yDEavdMAAAAJ), "ARB-LLM: Alternating Refined Binarizations for Large Language Models", ICLR, 2025
 
 [[arXiv](https://arxiv.org/pdf/2410.03129
-)] [[supplementary material](https://github.com/ZHITENGLI/ARB-LLM/releases/tag/v1)] [visual results] [models]
+)] [[supplementary material](https://github.com/ZHITENGLI/ARB-LLM/releases/tag/v1)]
 
 
 #### 🔥🔥🔥 News
 
+- **2025-02-16:** Code is released. ⭐️⭐️⭐️
 - **2025-01-23:** ARB-LLM is accepted at ICLR 2025. 🎉🎉🎉
 - **2024-10-03:** This repo is released.
 
@@ -29,20 +30,65 @@ Figure 1 in the main paper demonstrates that our proposed ARB-LLM<sub>RC</sub> o
   <img width="60%" src="figs/teaser.png">
 </p>
 
----
+## Dependencies
 
-
-## ⚒️ TODO
-
-* [ ] Complete this repository
+```bash
+# Clone the github repo and go to the default directory 'ARB-LLM'.
+git clone https://github.com/ZHITENGLI/ARB-LLM.git
+conda create -n arbllm python=3.11
+conda activate arbllm
+pip install torch torchvision torchaudio
+pip install -r requirements.txt
+```
 
 ## 🔗 Contents
 
-- [ ] Post-training quantization
-- [ ] Models
-- [x] [Results](#Results)
-- [x] [Citation](#Citation)
-- [x] [Acknowledgements](#Acknowledgements)
+1. [Post-training quantization and evaluation](#post-training-quantization)
+2. [Results](#-results)
+3. [Citation](#citation)
+4. [Acknowledgements](#-acknowledgements)
+
+## Post-training quantization with PPL evaluation
+
+### Binarization for OPT families
+
+- ARB-X
+  ```shell
+  python3 run_arb.py facebook/opt-6.7b c4 arb-x --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+- ARB-RC
+  ```shell
+  python3 run_arb.py facebook/opt-6.7b c4 arb-rc --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+### Binarization for LLaMA families
+
+- ARB-X
+  ```shell
+  python3 run_arb.py meta-llama/llama-2-7b-hf c4 arb-x --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+- ARB-RC
+  ```shell
+  python3 run_arb.py meta-llama/llama-2-7b-hf c4 arb-rc --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+### Binarization for Vicuna families (Instruction Fine-tuning Models)
+
+- ARB-X
+  ```shell
+  python3 run_arb.py lmsys/vicuna-7b-v1.5 c4 arb-x --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+- ARB-RC
+  ```shell
+  python3 run_arb.py lmsys/vicuna-7b-v1.5 c4 arb-rc --blocksize 128 --salient_metric hessian --device "cuda:0" --save --num_p 1 --order2_group
+  ```
+
+## Evaluation on zero-shot QA datasets
+
+We use [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) kit to evaluate performance on QA datasets. Please refer to their framework for evaluating quantized models.
 
 ## 🔎 Results
 
