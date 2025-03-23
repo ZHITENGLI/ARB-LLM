@@ -452,7 +452,7 @@ def structural_searching_multip_alternating_group_rc(origin_matrix, up_lim=30, n
             best_mask1, best_mask2 = generate_structural_mask(origin_matrix, mask3, optimal_split)
         
         # optimal_group2 = high_order_residual_alternating_order1(origin_matrix, best_mask2, order=1)
-        optimal_group2 = high_order_residual_alternating_order1_rc_nomean(origin_matrix, best_mask2, order=1, iter2=0)
+        optimal_group2 = high_order_residual_alternating_order1_rc_nomean(origin_matrix, best_mask2, order=1, iter=0)
         mask_list.append(best_mask2)
         optimal_split_list.append(optimal_split)
         group3 = group3 + optimal_group2
